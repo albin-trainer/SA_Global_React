@@ -1,4 +1,6 @@
+import { Address } from "./model/Address";
 import { CartItem } from "./model/CartItem";
+import { User } from "./model/User";
 import { CartService } from "./services/CartService";
 
 let cartService:CartService =new CartService();
@@ -26,3 +28,8 @@ cartService.addToCart(
 
  console.log("Total Items : "+summary[0])
   console.log("Total Price : "+summary[1])
+
+  //can create a new type from the Existing type called as type
+  type UserProfile = User & Address; //intersection 
+  let user:UserProfile={id:1,name:"Aravind",email:"aravind@sa.com",placeName:"Bangalore",pincode:123455};
+  console.log(user.name)

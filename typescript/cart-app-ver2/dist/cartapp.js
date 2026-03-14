@@ -16,3 +16,5 @@ console.log(cartitem.length);
 let summary = cartService.getCheckoutSummary();
 console.log("Total Items : " + summary[0]);
 console.log("Total Price : " + summary[1]);
+let user = { id: 1, name: "Aravind", email: "aravind@sa.com", placeName: "Bangalore", pincode: 123455 };
+console.log(user.name);
