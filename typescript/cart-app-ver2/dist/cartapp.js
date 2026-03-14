@@ -8,5 +8,11 @@ cartService.addToCart({ id: 1, prodName: "Pencil",
 cartService.addToCart({ id: 2, prodName: "React Book",
     price: 1000, ratings: 5,
     category: "BOOKS" });
+cartService.addToCart({ id: 2, prodName: "React Book",
+    price: 1000, ratings: 5,
+    category: "BOOKS" });
 let cartitem = cartService.getCartItems();
 console.log(cartitem.length);
+let summary = cartService.getCheckoutSummary();
+console.log("Total Items : " + summary[0]);
+console.log("Total Price : " + summary[1]);

@@ -1,1 +1,2 @@
-export type CheckoutSummary=[totalItems:number, totalPrice:number]
+export type CheckoutSummary=
+[totalItems:number, totalPrice:number]

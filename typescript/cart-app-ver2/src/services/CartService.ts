@@ -1,5 +1,6 @@
 import { CartItem } from "../model/CartItem";
 import { Product } from "../model/Product";
+import { CheckoutSummary } from "../types/CheckoutSummary";
 
 export class CartService{
     private cart:CartItem[]=[];
@@ -21,5 +22,18 @@ export class CartService{
 
     getCartItems():CartItem[]{
         return this.cart;
+    }
+
+    getCheckoutSummary():CheckoutSummary{
+         let totalItems:number=0;
+         let totalPrice=0;
+         for(let c of this.cart){
+          totalItems=  totalItems+c.quantity;
+         }
+
+         for(let c of this.cart){
+         totalPrice=   totalPrice+c.price;
+         }
+        return [totalItems,totalPrice];
     }
 }

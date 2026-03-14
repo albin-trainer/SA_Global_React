@@ -21,3 +21,8 @@ cartService.addToCart(
         
  let cartitem:CartItem[]=  cartService.getCartItems();
  console.log(cartitem.length)
+
+ let summary=cartService.getCheckoutSummary();
+
+ console.log("Total Items : "+summary[0])
+  console.log("Total Price : "+summary[1])
