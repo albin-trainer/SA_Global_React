@@ -1,4 +1,5 @@
 import { AddToCartDTO } from "../dto/AddToCartDTO";
+import { ApiResponse } from "../dto/ApiResponse";
 import { CartItem } from "../model/CartItem";
 import { Product } from "../model/Product";
 
@@ -24,11 +25,36 @@ private products:Product[]=[
         category:"BOOKS"},
 ]
 private cart:CartItem[]=[]; //empty cart Array .....
-    addToCart(dto:AddToCartDTO){
+    addToCart(dto:AddToCartDTO) : ApiResponse<Product>{
         //from dto read the prod id and get the product from the BACKEND(now another array)
         //and store in the cart array
+        //returns undefined if not found
+        //from backend
+         let product= this.products.find(i=>i.id==dto.productId);
+         if(!product){
+            return  {
+                status:false,
+                message:"Product not found"
+            };
+         }
+         else{
+            //needs to read the quantity and update the quantity
+            //then add to cart
+            let existing=this.cart.find(i=>i.id==product.id);
+            if(existing){
+                existing.quantity+=dto.quantity;
+            }
+            else //dont add, just update the quantity
+                 this.cart.push({...product,quantity:dto.quantity})
+           return{
+            status:true,
+            message:"Added Successfully",
+            data:product
+           }      
+         }
     }
-    getCartItems():CartItem[]{
-        return [];
+    getCartItems(): ApiResponse<CartItem[]>{
+        //pls correct this
+        return this.cart;
     }
 }
