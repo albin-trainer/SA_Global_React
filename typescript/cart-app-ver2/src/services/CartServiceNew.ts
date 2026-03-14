@@ -2,6 +2,7 @@ import { AddToCartDTO } from "../dto/AddToCartDTO";
 import { ApiResponse } from "../dto/ApiResponse";
 import { CartItem } from "../model/CartItem";
 import { Product } from "../model/Product";
+import { CheckoutSummary } from "../types/CheckoutSummary";
 
 export class CartServiceNew{
 
@@ -34,7 +35,8 @@ private cart:CartItem[]=[]; //empty cart Array .....
          if(!product){
             return  {
                 status:false,
-                message:"Product not found"
+                message:"Product not found",
+                data:null
             };
          }
          else{
@@ -55,6 +57,20 @@ private cart:CartItem[]=[]; //empty cart Array .....
     }
     getCartItems(): ApiResponse<CartItem[]>{
         //pls correct this
-        return this.cart;
+        return {
+            status:true,
+            message:"Found",
+            data:this.cart
+        }
+    }
+
+    removeItemFromCart(productId:number) :ApiResponse<Product>{
+        return {
+            status:false,
+            data:null
+        }
+    }
+    getChecoutSummary():ApiResponse<CheckoutSummary>{
+                throw new Error("not implemented .....")
     }
 }
