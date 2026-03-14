@@ -12,7 +12,7 @@ export class CartService{
             price:product.price,ratings:product.ratings,
             category:product.category,quantity:quantity}; */
 
-        let existingItem=this.cart.find(i=>i.id==product.id)
+        let existingItem=this.cart.find(existingcartItem=>existingcartItem.id==product.id)
         if(existingItem){
             quantity=existingItem.quantity+quantity;
         }
