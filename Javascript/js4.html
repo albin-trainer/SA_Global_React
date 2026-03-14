@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+       var x=     function (a,b){ //Anonymous function
+                    console.log(a+b)
+            }
+
+            x(10,20);
+           //JS closures In JavaScript, 
+           // a closure is the combination of a function
+           //  and its surrounding state (lexical environment). 
+            function counter(){
+                let count=0; //retain the data without making as a global variable
+              /*  let c= function increment(){ //anonymous function
+                    count++;
+                   console.log(count);
+                }
+                return c;   */
+                 return function increment(){ //anonymous function
+                    count++;
+                   console.log(count);
+                }            
+            }
+       var inc=  counter();
+       inc();inc();inc();
+          //  counter();
+           // counter();
+        </script>
+    </head>
+</html>

@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        <script>
+            let nums=[10,20,30,40,50,77,23,45,78];
+            //v can traditional array to iterate
+            for(let i=0;i<nums.length;i++){
+                console.log(nums[i]);
+            }
+            console.log("-------------")
+            for(let v of nums){
+                console.log(v)
+            }         
+            nums.forEach(print); //HOF 
+            function print(n){
+                console.log("****"+n+"*****")
+            }
+        nums.forEach(function (n){console.log("****"+n+"*****")});
+
+        nums.forEach(n=>console.log("----"+n+"------"))
+        //try to use arrow functions for iteration ....
+
+        //filter fn returns new array ....
+        let evenNos=  nums.filter(filterEvenNos);
+        console.log(evenNos);
+         function filterEvenNos(n){
+            return n%2==0;
+         }
+
+         let newarr=nums.filter(n=> n%2==0);
+        </script>
+    </head>
+</html>

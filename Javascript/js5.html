@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script>
+      //HOF -->accepts another fn as arg / return another fn
+          /*  function calculator(c,num1,num2){
+                let result =c(num1,num2);
+                console.log(result);
+            }
+*/
+        var calculator=(c,num1,num2)=>{
+                let result =c(num1,num2);
+                console.log(result);
+            }
+            calculator(  function (a,b){ return a+b},99,200  );
+            calculator(  function (a,b){ return a-b},10,5  );
+            calculator(  function (a,b){ return a*b},4,5  );
+            calculator(   (a,b)=>{ return a/b},10,2 );
+            calculator(   (a,b)=> a/b, 10,2 );
+
+            function add(a,b){
+                return a+b;
+            }
+            calculator(add,1,1);
+
+        </script>
+    </head>
+</html>

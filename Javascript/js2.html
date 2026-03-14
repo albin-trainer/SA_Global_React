@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+
+            function hello(){
+                { //local block
+                    var msg="Good morning"; //scope in function level ...
+                    console.log(msg)
+                    let wish="Hv a nice day !!!!" //local scope 
+                    var msg="Hv a wonderful day !!!!!"; //can redeclare ....
+                    //let wish="Hv a nice day !!!!" cannot redeclare ....
+                    console.log(wish);
+                }
+                console.log(msg)
+               // console.log(wish) //ERROR !!!!!
+
+            }
+            hello();
+        </script>
+    </head>
+</html>

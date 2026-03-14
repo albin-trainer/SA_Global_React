@@ -1,0 +1,1 @@
+export type CheckoutSummary=[totalItems:number, totalPrice:number]

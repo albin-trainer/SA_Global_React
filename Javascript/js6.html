@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            function greetings(wish,name){
+                    wish(name);
+            }
+            //invoking greetings
+            greetings(function (n){console.log("Hi "+n+" Happy Birthday ")},"Raj");
+
+            greetings(function (n){console.log("Hi "+n+"Happy Wedding Anniversery  ")},"Sanjay");
+
+            //convert into arrow function and call greetings 
+
+            let bdayGreetings= n=>console.log("Hi "+n+" Happy Birthday ");
+
+            greetings(bdayGreetings,"Sanjay");
+
+            greetings(n=>console.log("Hi "+n+"  Happy Anniversary"),"Kumar");
+        </script>
+    </head>
+</html>

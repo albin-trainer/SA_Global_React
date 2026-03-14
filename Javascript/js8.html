@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <script>
+        //js object....
+        let emp={id:101,ename:"Sanjay",address:"Bangalore"};
+        console.log("emp id is "+emp.id+" emp name : "+emp.ename);
+        //ES6 feature template literals--> supports multi line
+        console.log(`emp id is ${emp.id} and ename is ${emp.ename}`)
+            //multi line string 
+        let msg=`Emp id is ${emp.id} and ename is ${emp.ename}
+        and the address is ${emp.address}
+        `;
+        console.log(msg);
+        //Destructring the object
+        let {id,address}=emp;        
+        console.log(id);
+        console.log(address);
+        //RENAMING the variable ....
+         let {id:eid,ename}=emp;
+         console.log(eid);
+        console.log(ename);
+
+        let customer={cid:9001,cname:"Aravind",address:"Bangalore"};
+        printCustomer(customer)
+
+        //Assume this function in different file/component
+ //change fn argument to accept only id and name by using object destructuring ...
+        function printCustomer(c){
+            console.log(`customer id is ${c.cid} and name is ${c.cname}`)
+        }
+        displayCustomer(customer);
+        //obj Destructing ....
+        function displayCustomer( {cid,cname} ){
+            console.log(`customer id is ${cid} and name is ${cname}`)
+
+        }
+        let empData={id:101,name:"Raj",address:{doorNo:"A-001",placeName:"Bangalore"}};
+        console.log(empData.address.doorNo)//A-001
+        console.log(empData.gender); //undefined ....
+        //optional chaining .... ?
+        console.log(empData.empaddress?.doorNo); //here empaddress is undefined ....
+        console.log("test");
+        let nums=[1,2,3,4,5];
+
+    </script>
+    </head>
+    
+</html>
