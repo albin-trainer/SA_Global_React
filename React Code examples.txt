@@ -1,0 +1,29 @@
+function Person(){  
+  //JSX
+  return  <div>
+    <h1>Albin</h1>
+    <h2>Bangalore</h2>
+    </div>
+}
+//reading HTML element by js
+ var divElement=document.getElementById("app");
+//renders our UI component in div 
+ReactDOM.render(<Person/>,divElement);
+-----------
+function Person(props){  //JSX
+  return  <div>
+    <h1>{props.name}</h1>
+    <h2>{props.gender}</h2>
+    <Address place={props.place} pin={props.pin}/>
+    </div>
+}
+function Address(props){
+  return <div>
+    <h1>{props.place}</h1>
+    <h1>{props.pin}</h1>
+    </div>
+}
+//reading HTML element by js
+ var divElement=document.getElementById("app");
+//renders our UI component in div 
+ReactDOM.render(<Person name="Albin" gender="Male" place="Bangalore" pin="123456"/>,divElement);

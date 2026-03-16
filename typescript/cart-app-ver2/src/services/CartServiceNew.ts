@@ -70,7 +70,7 @@ private cart:CartItem[]=[]; //empty cart Array .....
             data:null
         }
     }
-    getChecoutSummary():ApiResponse<CheckoutSummary>{
+    getCheckoutSummary():ApiResponse<CheckoutSummary>{
                 throw new Error("not implemented .....")
     }
 }

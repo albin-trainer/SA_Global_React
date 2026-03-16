@@ -1,0 +1,8 @@
+.emp{
+    width: 200px;
+    border-style: solid;
+    border-color: brown;
+    background-color: rgb(223, 148, 207);
+    margin: 1px;
+    float: left;
+}
