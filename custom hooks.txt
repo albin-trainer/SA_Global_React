@@ -1,0 +1,12 @@
+
+React Hooks are special JavaScript functions that allow developers to use state, lifecycle methods, and other React features within functional components.
+
+ Introduced in React 16.8, they provide a more streamlined, reusable, and performant alternative to using class components for managing state and side effect
+
+
+
+Custom hooks are reusable functions that encapsulate React hook logic such as state and side effects, helping to separate business logic from UI components.
+
+
+life cycle methods
+componentDidMount, componentDidUpdate, componentWillUnmount

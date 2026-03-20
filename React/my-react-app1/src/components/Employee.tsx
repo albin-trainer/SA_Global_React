@@ -5,10 +5,8 @@ type EmployeePros= Employee & {
     delEvent:(id:string)=>void
 }
 function Employee(empProps : EmployeePros){
-    //console.log(empProps.gender)
     let maleImg="images/male.jfif";
-    let femaleImg="images/female.jpg";
-    
+    let femaleImg="images/female.jpg";    
     let rmEmp=()=>{
      //   alert(`in child ${empProps.eid}`)
         empProps.delEvent(empProps.eid);
@@ -16,7 +14,7 @@ function Employee(empProps : EmployeePros){
 
     useEffect( ()=>{
         
-        return ()=>{console.log(`Cleaning up ${empProps.eid}`)}
+        return ()=>{console.log(`Cleaning up ..... ${empProps.eid}`)}
     },[] ) ;
     return <div className="emp">
         <div className="card">

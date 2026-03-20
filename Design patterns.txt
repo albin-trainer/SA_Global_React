@@ -1,0 +1,26 @@
+Component composition strategies.
+ Container vs Presentational components.
+ Separation of concerns in frontend architecture
+
+Component Composition
+ Building complex UIs by combining smaller, reusable components.
+
+👉 Example idea: Header + Sidebar + Content = Page
+---------------------------
+Container vs Presentational Components
+
+Container components handle logic/data, while presentational components handle UI/display.
+
+Container → what happens (API, state)
+
+Presentational → what to show (UI)
+--------------------------------------------------
+Separation of Concerns
+
+Dividing code so each part has a single responsibility (UI, logic, data, etc.).
+
+👉 In React:
+
+UI → Components
+
+Logic → Custom Hooks

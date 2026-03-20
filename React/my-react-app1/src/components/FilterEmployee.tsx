@@ -1,9 +1,12 @@
 import { useRef } from "react";
-
-function FilterEmployee(){
+type filterProps={
+    filter:   (n:string)=>void
+}
+function FilterEmployee(filter:filterProps){
  const inputRef=useRef <HTMLInputElement>(null);
  let inpChange=()=>{
     console.log(inputRef.current?.value)
+    filter.filter(inputRef.current?.value)
  }
 
     return<>

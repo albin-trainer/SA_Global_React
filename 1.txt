@@ -1,0 +1,19 @@
+Can create react app in two ways
+
+
+   (pretty old , now its not recommeded)
+1) npx create-react-app myapp
+      to run 
+      npm start
+
+---------------------------
+  
+   (In all mordern web apps)
+2) npm create vite@latest my-react-app1
+	to run 
+          npm run dev
+
+
+
+   Rollup -for bundler
+   SWC - Speedy Web Compiler -> for compiler ///
