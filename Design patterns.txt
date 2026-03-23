@@ -5,7 +5,7 @@ Component composition strategies.
 Component Composition
  Building complex UIs by combining smaller, reusable components.
 
-👉 Example idea: Header + Sidebar + Content = Page
+ Example idea: Header + Sidebar + Content = Page
 ---------------------------
 Container vs Presentational Components
 
@@ -19,7 +19,7 @@ Separation of Concerns
 
 Dividing code so each part has a single responsibility (UI, logic, data, etc.).
 
-👉 In React:
+ In React:
 
 UI → Components
 
