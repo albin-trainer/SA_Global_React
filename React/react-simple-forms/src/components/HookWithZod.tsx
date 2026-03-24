@@ -1,26 +1,25 @@
 import { useForm } from "react-hook-form";
-import { empSchema } from "../schemas/emp.schema";
+import { empSchema, type EmpData } from "../schemas/emp.schema";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-type FormData={
+/*type FormData={
     name:string; age:number;
-}
-
+}*/
 function HookWithZod(){
       const {
         register,
         handleSubmit,
         formState: { errors }
-      } = useForm<FormData>(
+      } = useForm<EmpData>(
         {resolver: zodResolver(empSchema)}
       );
 
-    const onSubmit=(data:FormData)=>{
+    const onSubmit=(data:EmpData)=>{
         console.log("Submited : "+data)
     }
     return <>
         <form  onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("name")} placeholder="Enter Name"></input>
+            <input {...register("name") } placeholder="Enter Name"></input>
             <p>{errors.name?.message}</p>
             <input type="number" {...register("age",{valueAsNumber:true})} placeholder="Enter Age"></input>
                <p>{errors.age?.message}</p>
