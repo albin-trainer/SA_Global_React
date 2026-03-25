@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Navbar from "../components/Navbar";
+import { CircularProgress } from "@mui/material";
 
 function MainLayout() {
   return (
@@ -9,7 +10,7 @@ function MainLayout() {
 
       {/*  Lazy pages render here */}
      
-      <Suspense fallback={<h3>Loading page...</h3>}> 
+      <Suspense fallback={<CircularProgress color="secondary"  size={200}/>}> 
               <Outlet />
       </Suspense>
     </>

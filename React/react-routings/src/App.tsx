@@ -18,8 +18,8 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         {/* Nested Employee Layout */}
         <Route path="/employee" element={<EmployeeLayout />}>
-          <Route index element={<EmployeeList />} />
-          <Route path="empForm" element={<EmployeeForm />} />
+            <Route index element={<EmployeeList />} />
+            <Route path="empForm" element={<EmployeeForm />} />
        </Route>
       </Route>
       {/*  Admin Layout */}
