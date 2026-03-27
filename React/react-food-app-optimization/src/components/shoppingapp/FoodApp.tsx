@@ -7,14 +7,15 @@ function FoodApp() {
   const [cart, setCart] = useState<Food[]>([]);
   const [search, setSearch] = useState<string>(""); 
 
-
-
   const addToCart = (food: Food) => {
     console.log("Adding to cart");
     setCart([...cart, food]);
   };
-
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+//calculate the total price
+  const total = cart.reduce((sum, item) => {
+    console.log("calculating ....")
+    return sum + item.price
+  }, 0);
 
   const filteredFoods = foods.filter(food => {
     console.log("filtering ...")
@@ -22,7 +23,6 @@ function FoodApp() {
     return food.name.toLowerCase().includes(search.toLowerCase())
   }
   );
-
   return (
     <>
       <h2>Total: Rs. {total}</h2>
