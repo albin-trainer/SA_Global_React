@@ -1,11 +1,16 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
-
+type User={ name:string,role:string }
 const Login = () => {
-  const { login  } = useContext(AuthContext);
-  const navigate = useNavigate();
+  //reading from the Context
+  const { login  } = useContext(AuthContext); //useContext to consume Context
+  const navigate = useNavigate(); //hook
   const nameref=useRef("");
+  let users:User[]=[ { name:"Albin",role:"admin"} ,{name:"Sanjay",role:"user"},
+     {name:"Ram",role:"user"} ,{name:"Keerthana",role:"admin"},
+      {name:"Karthik",role:"user"} ,{name:"Rajeswari",role:"user"}
+  ];
   const handleLogin = () => {
     let n:string=nameref.current?.value;
     const user = { name:n };
