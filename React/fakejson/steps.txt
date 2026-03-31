@@ -1,0 +1,8 @@
+//to install fake json server
+npm install -g json-server //for new versions
+
+npm install -g json-server@0.17.3 //for old versions 
+ //http://localhost:3001/employees?name_like=^A //can do search like this
+
+//to start server
+npx json-server --watch db.json --port 3001

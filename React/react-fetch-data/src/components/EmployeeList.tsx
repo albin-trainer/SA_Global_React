@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import SimpleCrudTest from "./SimpleCrudTest";
 const departments = ["HR", "IT", "Finance"] as const;
 
 type Department = typeof departments[number] | "";
@@ -14,7 +15,6 @@ export type Employee = {
 export const EmployeeList=()=>{
     let [employees,setEmployees]=useState<Employee[]>([]);
     let [search,setSearch]=useState<string>("");
-    let [debouncingSearch,setDebouncingSearch]=useState<string>("");
     let url="http://localhost:3001/employees"
     let abortController:AbortController;
     useEffect( ()=>{
@@ -32,16 +32,48 @@ export const EmployeeList=()=>{
     },[] );
     useEffect(()=>{
         console.log("searching")
-            setTimeout(connectApi,500);
-            
-        function connectApi(){
-          let url=`http://localhost:3001/employees?name_like=^${search}`;
-            fetch( url ).then(res=>res.json()).
-            then((emps:Employee[])=>setEmployees(emps));
-        }
+       const timer=    setTimeout(connectApi,100); //DeBouncing..... 
 
+     /*   function connectApi(){
+          let url=`http://localhost:3001/employees?name_like=^${search}`;
+            fetch( url ).
+            then(res=>res.json()).  //resp.json() returns another Promisse
+            //Func of promise returned by res.json()
+            then((emps:Employee[])=>setEmployees(emps));
+        }  */
+    async function connectApi() {
+        let url=`http://localhost:3001/employees?name_like=^${search}`;
+        const res= await fetch(url);
+        const emps:Employee[]= await res.json();
+        setEmployees(emps)
+    }
+
+     ()=>clearTimeout(timer); //clear the timer for old request ....
     },[search]);
+
+        /*
+useEffect(() => {
+    const controller = new AbortController();
+
+    async function fetchEmployees() {
+        try {
+            const res = await fetch(url, { signal: controller.signal });
+            const emps: Employee[] = await res.json();
+            setEmployees(emps);
+        } catch (err: any) {
+            if (err.name !== "AbortError") {
+                console.error("Error:", err);
+            }
+        }
+    }
+
+    fetchEmployees();
+
+    return () => controller.abort(); 
+}, []);
+        */
     return <>
+      <SimpleCrudTest/>
         Emp List
         <input type="text" placeholder="Search by Name" 
         onChange={(e)=>setSearch(e.target.value)}></input>
