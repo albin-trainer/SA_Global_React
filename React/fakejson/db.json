@@ -1,11 +1,39 @@
 {
+  "userlogin": [
+    {
+      "id": 1,
+      "username": "Albin",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "username": "Sanjay",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "username": "Priya",
+      "password": "1234"
+    },
+    {
+      "id": 4,
+      "username": "Sneha",
+      "password": "1234"
+    }
+  ],
+  "departments": [
+    "IT",
+    "Finance",
+    "HR",
+    "Accounts"
+  ],
   "employees": [
     {
       "id": 1,
       "name": "Albin",
       "age": 32,
       "email": "albinxavier@gmail.com",
-      "dept": "Finance",
+      "dept": "IT",
       "gender": "Male"
     },
     {
@@ -20,8 +48,8 @@
       "id": 4,
       "name": "Dhana",
       "age": 30,
-      "email": "dhana@example.com",
-      "dept": "IT",
+      "email": "dhana@gmail.com.com",
+      "dept": "HR",
       "gender": "Male"
     },
     {
@@ -36,7 +64,7 @@
       "id": 7,
       "name": "Priya",
       "age": 29,
-      "email": "priya@example.com",
+      "email": "priya@gmail.com",
       "dept": "IT",
       "gender": "Female"
     },
@@ -369,12 +397,44 @@
       "gender": "Male"
     },
     {
-      "id": 51,
-      "name": "Ganapathy",
-      "age": 32,
-      "email": "ganapathy@gmail.com",
-      "dept": "Finance",
-      "gender": "Male"
+      "name": "Balu",
+      "age": "30",
+      "email": "balu@test.com",
+      "dept": "",
+      "gender": "",
+      "id": 51
+    },
+    {
+      "name": "Balu",
+      "age": "30",
+      "email": "balu@test.com",
+      "dept": "",
+      "gender": "",
+      "id": 52
+    },
+    {
+      "name": "Balu",
+      "age": "30",
+      "email": "balu@test.com",
+      "dept": "",
+      "gender": "",
+      "id": 53
+    },
+    {
+      "name": "Balu",
+      "age": "30",
+      "email": "balu@test.com",
+      "dept": "",
+      "gender": "",
+      "id": 54
+    },
+    {
+      "name": "Raj",
+      "age": "25",
+      "email": "Raj@gmail.com",
+      "dept": "HR",
+      "gender": "Male",
+      "id": 55
     }
   ]
 }
