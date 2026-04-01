@@ -17,6 +17,8 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useEffect, useState } from "react";
+import { getAllEmps } from "../../services/EmployeeService";
 
 type Department = "HR" | "IT" | "Finance";
 type Gender = "Male" | "Female" | "Other";
@@ -57,13 +59,27 @@ const employees: Employee[] = [
   }
 ];
 
+
 function EmployeeList() {
   const navigate = useNavigate();
-
+const [emps,setEmps]=useState<Employee[]>([])
+const [search,setSearch]=useState<string>("");
+//const [filteredEmps,setFilteredEmps]=useState<Employee[]>([])
+useEffect( ()=>{
+       getAllEmps().then( emps=>setEmps(emps));
+},[] );
   const handleDelete = (id: number) => {
     console.log("Delete employee:", id);
     // later → API call + confirm dialog
+    //const prev = emps;
+    // update UI instantly
+    //OPtimistic UI update
+    setEmps(emps.filter(emp => emp.id !== id));
+    //then remove from BackEND  .....
+    
   };
+const filteredEmps=
+emps.filter(e=>e.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <Box p={2}>
@@ -78,7 +94,7 @@ function EmployeeList() {
     size="small"
     label="Search"
     
-    sx={{ width: 250 }}
+    sx={{ width: 250 }}  onChange={(e)=>setSearch(e.target.value)}
   />
         <Typography variant="h5">Employees</Typography>
 
@@ -104,7 +120,7 @@ function EmployeeList() {
           </TableHead>
 
           <TableBody>
-            {employees.map((emp) => (
+            {emps.map((emp) => (
               <TableRow key={emp.id}>
                 <TableCell>{emp.name}</TableCell>
                 <TableCell>{emp.age}</TableCell>

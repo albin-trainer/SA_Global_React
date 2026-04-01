@@ -11,6 +11,11 @@ import {
   FormControlLabel,
   Radio
 } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { addNewEmp, getEmpById, updateEmp } from "../../services/EmployeeService";
+
+
 
 const departments = ["HR", "IT", "Finance"] as const;
 type Department = typeof departments[number] | "";
@@ -32,11 +37,9 @@ type Props = {
 };
 
 function EmployeeForm({ defaultValues }: Props) {
+  let navigate=useNavigate();
   const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors }
+    register, handleSubmit, control, reset, formState: { errors }
   } = useForm<EmployeeFormData>({
     defaultValues: {
       name: defaultValues?.name ?? "",
@@ -46,7 +49,45 @@ function EmployeeForm({ defaultValues }: Props) {
       gender: defaultValues?.gender ?? ""
     }
   });
- const onSubmit= (data: EmployeeFormData) => console.log(data);
+   //returns all the params
+   //Obj Destructuring ....
+   let {id}=   useParams();
+  useEffect (  ()=>{
+      console.log("Comp mounted")
+      console.log(id);
+
+      if(id){
+          //for edit
+    getEmpById(Number(id))
+    .then(emp=> {
+      console.log(emp)
+      reset(emp); //to update the hook form
+    }); 
+      }
+      else{
+        //for new
+      }
+
+  },[]);
+
+ const onSubmit= (data: EmployeeFormData) =>
+  {
+      console.log(data);
+      if(id){
+        //call update service
+       
+          updateEmp(data, Number(id)).then(resp=>{
+            navigate("/employee");
+          }).catch(err=>console.log(err));
+
+      }
+      else{
+        //call new emp service
+       addNewEmp(data).then(resp=>alert("new Emp added"));
+      }
+  } 
+
+
   return (
     <Box
       component="form"
@@ -62,8 +103,9 @@ function EmployeeForm({ defaultValues }: Props) {
         fullWidth
         label="Name"
         margin="normal"
+        
         {...register("name", { required: "Name is required" })}
-   
+        error={!!errors.name}
         helperText={errors.name?.message}
       />
 
