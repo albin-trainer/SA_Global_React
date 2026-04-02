@@ -63,10 +63,7 @@ function EmployeeForm({ defaultValues }: Props) {
       console.log(emp)
       reset(emp); //to update the hook form
     }); 
-      }
-      else{
-        //for new
-      }
+      }   
 
   },[]);
 

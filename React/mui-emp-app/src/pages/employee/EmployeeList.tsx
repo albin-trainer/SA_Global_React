@@ -19,11 +19,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useEffect, useState } from "react";
 import { getAllEmps } from "../../services/EmployeeService";
+import { useEmployees } from "../../hooks/useEmployees";
 
 type Department = "HR" | "IT" | "Finance";
 type Gender = "Male" | "Female" | "Other";
-
-type Employee = {
+export type Employee = {
   id: number;
   name: string;
   age: number;
@@ -32,52 +32,28 @@ type Employee = {
   gender: Gender;
 };
 
-const employees: Employee[] = [
-  {
-    id: 1,
-    name: "Sanjay",
-    age: 28,
-    email: "Sanjay@gmail.com",
-    dept: "IT",
-    gender: "Male"
-  },
-  {
-    id: 2,
-    name: "Mary Jane",
-    age: 32,
-    email: "mary@mail.com",
-    dept: "HR",
-    gender: "Female"
-  },
-  {
-    id: 3,
-    name: "Raj",
-    age: 30,
-    email: "Raj@gmail.com",
-    dept: "Finance",
-    gender: "Other"
-  }
-];
-
-
 function EmployeeList() {
   const navigate = useNavigate();
-const [emps,setEmps]=useState<Employee[]>([])
+//const [emps,setEmps]=useState<Employee[]>([])
 const [search,setSearch]=useState<string>("");
 //const [filteredEmps,setFilteredEmps]=useState<Employee[]>([])
-useEffect( ()=>{
+/*useEffect( ()=>{
        getAllEmps().then( emps=>setEmps(emps));
 },[] );
+*/
+let {emps,removeEmp}=useEmployees();
   const handleDelete = (id: number) => {
     console.log("Delete employee:", id);
+    removeEmp(id);
     // later → API call + confirm dialog
     //const prev = emps;
     // update UI instantly
-    //OPtimistic UI update
-    setEmps(emps.filter(emp => emp.id !== id));
+    //OPtimistic UI update like FB, instagram like
+    //setEmps(emps.filter(emp => emp.id !== id));
     //then remove from BackEND  .....
     
   };
+
 const filteredEmps=
 emps.filter(e=>e.name.toLowerCase().includes(search.toLowerCase()))
 
@@ -120,7 +96,7 @@ emps.filter(e=>e.name.toLowerCase().includes(search.toLowerCase()))
           </TableHead>
 
           <TableBody>
-            {emps.map((emp) => (
+            {filteredEmps.map((emp) => (
               <TableRow key={emp.id}>
                 <TableCell>{emp.name}</TableCell>
                 <TableCell>{emp.age}</TableCell>
