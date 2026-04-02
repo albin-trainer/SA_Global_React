@@ -14,7 +14,7 @@ useEffect( ()=>{
 */
  const {data : emps=[] }= useQuery<Employee[]>({
    queryKey:['employees'],
-   queryFn:getAllEmps,staleTime:10000
+   queryFn:getAllEmps,staleTime:10000,
 })
 const removeEmp=(id:number)=>{
   // setEmps(emps.filter(emp => emp.id !== id)); 

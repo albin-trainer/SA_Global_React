@@ -14,6 +14,8 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { addNewEmp, getEmpById, updateEmp } from "../../services/EmployeeService";
+import { useMutation } from "@tanstack/react-query";
+import { queryClient } from "../../querysetup/query";
 
 
 
@@ -66,6 +68,13 @@ function EmployeeForm({ defaultValues }: Props) {
       }   
 
   },[]);
+const addMutation = useMutation({
+  mutationFn: addNewEmp,
+  onSuccess: () => {
+  queryClient.invalidateQueries({ queryKey: ["employees"] });
+    alert("Added!");
+   },
+});
 
  const onSubmit= (data: EmployeeFormData) =>
   {
@@ -79,8 +88,9 @@ function EmployeeForm({ defaultValues }: Props) {
 
       }
       else{
+        addMutation.mutate(data);
         //call new emp service
-       addNewEmp(data).then(resp=>alert("new Emp added"));
+      // addNewEmp(data).then(resp=>alert("new Emp added"));
       }
   } 
 
