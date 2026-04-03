@@ -1,0 +1,31 @@
+TESTING SETUP
+----------------
+
+1)npm install --save-dev vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom
+
+2) Add this in package.json
+
+"scripts": {
+  "test": "vitest",
+  "test:ui": "vitest --ui",
+  "test:run": "vitest run"
+}
+
+3)Create vitest.config.ts
+
+import { defineConfig } from "vitest/config"; 
+
+export default defineConfig({
+  test: {
+    environment: "jsdom",   // 
+    globals: true,          // so no need to import test, expect
+    setupFiles: "./src/test/setup.ts"
+  },
+});
+
+4) Create: src/test/setup.ts
+
+import "@testing-library/jest-dom";
+
+5) tsconfig.app.json file
+   in compileroptions add     "types": ["vite/client","vitest/globals"],
