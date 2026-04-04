@@ -7,11 +7,11 @@ describe("Test use Empls Hook",  ()=>{
 
 test("Testing use Employees Hook ", async()=>{
     const mockEmpData= [
-        {id:"101",name:"Sanjay", gender:"Male"},
-        {id:"102",name:"KArthik", gender:"Male"},
-        {id:"103",name:"Priya", gender:"Female"},
-        {id:"104",name:"Sneha", gender:"Female"},
-        {id:"105",name:"Ganapathy", gender:"Male"},
+        {id:101,name:"Sanjay", gender:"Male"},
+        {id:102,name:"KArthik", gender:"Male"},
+        {id:103,name:"Priya", gender:"Female"},
+        {id:104,name:"Sneha", gender:"Female"},
+        {id:105,name:"Ganapathy", gender:"Male"},
     ];
     //When getAllEmps () get called
     //shud return the mock data
@@ -32,14 +32,7 @@ test("Testing use Employees Hook ", async()=>{
      act( ()=>{
       result.current.removeEmp(101);
     });
-
-    
-        expect(result.current.emps.length).toEqual([
-       {id:"102",name:"KArthik", gender:"Male"},
-        {id:"103",name:"Priya", gender:"Female"},
-        {id:"104",name:"Sneha", gender:"Female"},
-        {id:"105",name:"Ganapathy", gender:"Male"}
-        ])
+    expect(result.current.emps.length).toBe(4);
       //is the Func to assert the result
 })
 
