@@ -1,9 +1,10 @@
 import { useForm, Controller } from "react-hook-form";
 import { TextField, Button, Box } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function EmpForm() {
- // const navigate = useNavigate();
+  const navigate = useNavigate();
  let [msg,setMsg]=useState("");
   const {
     control,
@@ -13,8 +14,8 @@ export default function EmpForm() {
 
   const onSubmit = (data: any) => {
     console.log(data);
-   // navigate("/success"); 
-   setMsg("Registration Success")
+    navigate("/success"); 
+  // setMsg("Registration Success")
   };
 
   return (
