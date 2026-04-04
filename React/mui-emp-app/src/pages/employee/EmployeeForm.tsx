@@ -80,7 +80,8 @@ function EmployeeForm({ defaultValues }: Props) {
       }
       else{
         //call new emp service
-       addNewEmp(data).then(resp=>alert("new Emp added"));
+       addNewEmp(data);//.then(resp=>alert("new Emp added"));
+       alert("new Emp added");
       }
   } 
 
@@ -164,9 +165,9 @@ function EmployeeForm({ defaultValues }: Props) {
         rules={{ required: "Gender is required" }}
         render={({ field }) => (
           <FormControl margin="normal" error={!!errors.gender}>
-            <FormLabel>Gender</FormLabel>
+            <FormLabel id="gender-label">Gender</FormLabel>
 
-            <RadioGroup row {...field}>
+            <RadioGroup row {...field}   aria-labelledby="gender-label">
               <FormControlLabel value="Male" control={<Radio />} label="Male" />
               <FormControlLabel value="Female" control={<Radio />} label="Female" />
               <FormControlLabel value="Other" control={<Radio />} label="Other" />
