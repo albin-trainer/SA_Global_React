@@ -1,10 +1,9 @@
-import { renderHook, waitFor } from "@testing-library/react";
+import { act, renderHook, waitFor } from "@testing-library/react";
 import { useEmployees } from "../../hooks/useEmployees";
 import { getAllEmps } from "../../services/EmployeeService"
-
 //Replace EmployeeService module with the mock version
-vi.mock("../services/EmployeeService")
-describe("Test use Empls Hook", async ()=>{
+vi.mock("../../services/EmployeeService")
+describe("Test use Empls Hook",  ()=>{
 
 test("Testing use Employees Hook ", async()=>{
     const mockEmpData= [
@@ -26,11 +25,21 @@ test("Testing use Employees Hook ", async()=>{
       //after running the useEffect hook
       //wait for useEffect to complete the run
 
-    await waitFor ( ()=>{
-      expect(result.current.emps.length).toBe(5);
-
+    await waitFor ( ()=>{ 
+         expect(result.current.emps.length).toBe(5);
     })
+    //this Stmt change the state of the Hook
+     act( ()=>{
+      result.current.removeEmp(101);
+    });
 
+    
+        expect(result.current.emps.length).toEqual([
+       {id:"102",name:"KArthik", gender:"Male"},
+        {id:"103",name:"Priya", gender:"Female"},
+        {id:"104",name:"Sneha", gender:"Female"},
+        {id:"105",name:"Ganapathy", gender:"Male"}
+        ])
       //is the Func to assert the result
 })
 
