@@ -59,6 +59,8 @@ test("Successful Registration", async()=>{
 
  const agerequired=await screen.queryByText("Age is required");
   expect(agerequired).not.toBeInTheDocument();
+
+  //Integeration ....
 expect(mockNavigate).toHaveBeenCalledWith("/success");
 
 
