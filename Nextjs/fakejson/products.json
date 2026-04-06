@@ -1,0 +1,193 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 15",
+      "slug": "iphone-15",
+      "brand": "Apple",
+      "category": "mobiles",
+      "price": 79900,
+      "discountPrice": 74900,
+      "rating": 4.6,
+      "reviewsCount": 1203,
+      "stock": 25,
+      "image": "https://via.placeholder.com/300",
+      "images": [
+        "https://via.placeholder.com/300",
+        "https://via.placeholder.com/300"
+      ],
+      "description": "Apple iPhone 15 with A16 Bionic chip, 48MP camera, and all-day battery life.",
+      "features": [
+        "6.1-inch Super Retina XDR display",
+        "A16 Bionic chip",
+        "48MP main camera",
+        "USB-C connectivity"
+      ],
+      "reviews": [
+        {
+          "user": "Karthik",
+          "rating": 5,
+          "comment": "Excellent performance and camera quality!",
+          "date": "2026-02-01"
+        },
+        {
+          "user": "Balu",
+          "rating": 4,
+          "comment": "Great phone but slightly expensive.",
+          "date": "2026-02-05"
+        }
+      ],
+      "createdAt": "2026-01-01"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S23",
+      "slug": "samsung-galaxy-s23",
+      "brand": "Samsung",
+      "category": "mobiles",
+      "price": 74999,
+      "discountPrice": 69999,
+      "rating": 4.5,
+      "reviewsCount": 980,
+      "stock": 40,
+      "image": "https://via.placeholder.com/300",
+      "images": [
+        "https://via.placeholder.com/300"
+      ],
+      "description": "Samsung Galaxy S23 with Snapdragon processor and premium design.",
+      "features": [
+        "Dynamic AMOLED display",
+        "Snapdragon processor",
+        "50MP camera",
+        "Fast charging"
+      ],
+      "reviews": [
+        {
+          "user": "Dhana",
+          "rating": 5,
+          "comment": "Amazing display and smooth performance.",
+          "date": "2026-02-02"
+        },
+        {
+          "user": "Anton",
+          "rating": 4,
+          "comment": "Battery could be better.",
+          "date": "2026-02-06"
+        }
+      ],
+      "createdAt": "2026-01-02"
+    },
+    {
+      "id": 3,
+      "name": "OnePlus 12",
+      "slug": "oneplus-12",
+      "brand": "OnePlus",
+      "category": "mobiles",
+      "price": 64999,
+      "discountPrice": 59999,
+      "rating": 4.4,
+      "reviewsCount": 620,
+      "stock": 30,
+      "image": "https://via.placeholder.com/300",
+      "images": [
+        "https://via.placeholder.com/300"
+      ],
+      "description": "OnePlus 12 with smooth performance and fast charging.",
+      "features": [
+        "120Hz display",
+        "Fast charging",
+        "Snapdragon chipset"
+      ],
+      "reviews": [
+        {
+          "user": "Vasu",
+          "rating": 5,
+          "comment": "Super fast charging and clean UI.",
+          "date": "2026-02-03"
+        },
+        {
+          "user": "Karthik",
+          "rating": 4,
+          "comment": "Good value for money.",
+          "date": "2026-02-07"
+        }
+      ],
+      "createdAt": "2026-01-03"
+    },
+    {
+      "id": 4,
+      "name": "Dell XPS 13 Laptop",
+      "slug": "dell-xps-13",
+      "brand": "Dell",
+      "category": "laptops",
+      "price": 125000,
+      "discountPrice": 115000,
+      "rating": 4.7,
+      "reviewsCount": 430,
+      "stock": 10,
+      "image": "https://via.placeholder.com/300",
+      "images": [
+        "https://via.placeholder.com/300"
+      ],
+      "description": "Premium ultrabook with Intel i7 processor and sleek design.",
+      "features": [
+        "13-inch display",
+        "Intel i7 processor",
+        "16GB RAM",
+        "512GB SSD"
+      ],
+      "reviews": [
+        {
+          "user": "Balu",
+          "rating": 5,
+          "comment": "Lightweight and powerful laptop.",
+          "date": "2026-02-04"
+        },
+        {
+          "user": "Anton",
+          "rating": 4,
+          "comment": "Great build quality but pricey.",
+          "date": "2026-02-08"
+        }
+      ],
+      "createdAt": "2026-01-04"
+    },
+    {
+      "id": 5,
+      "name": "Sony WH-1000XM5 Headphones",
+      "slug": "sony-wh-1000xm5",
+      "brand": "Sony",
+      "category": "electronics",
+      "price": 29990,
+      "discountPrice": 26990,
+      "rating": 4.8,
+      "reviewsCount": 2100,
+      "stock": 50,
+      "image": "https://via.placeholder.com/300",
+      "images": [
+        "https://via.placeholder.com/300"
+      ],
+      "description": "Industry-leading noise canceling wireless headphones.",
+      "features": [
+        "Noise cancellation",
+        "30-hour battery",
+        "Bluetooth 5.2"
+      ],
+      "reviews": [
+        {
+          "user": "Dhana",
+          "rating": 5,
+          "comment": "Best noise cancellation ever!",
+          "date": "2026-02-05"
+        },
+        {
+          "user": "Vasu",
+          "rating": 5,
+          "comment": "Amazing sound quality and comfort.",
+          "date": "2026-02-09"
+        }
+      ],
+      "createdAt": "2026-01-05"
+    }
+  ]
+}
