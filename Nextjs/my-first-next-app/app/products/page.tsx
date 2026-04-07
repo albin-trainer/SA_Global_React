@@ -5,7 +5,9 @@ export function generateMetadata(){
   return { title:"Iphone, Sony, Books and Bottle", description:" Products like mobilem TV"}
 }
 async function  getProducts() :any[]{
-   let resp=  await fetch("http://localhost:3001/products");
+   let resp=  await fetch("http://localhost:3001/products" ,{
+    
+   });
    return resp.json();
 }
 

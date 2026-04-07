@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 
 async function  getProduct(slug) :any[]{
     console.log(`http://localhost:3001/products?slug=${slug}`)
@@ -9,6 +10,9 @@ export default async function ProductPage({params}){ //Destructuring the props
     console.log( `Slug is ${slug}`)
     let product:any[]= await getProduct(slug)
     console.log(product)
+    if(product.length<=0){
+        notFound();
+    }
     console.log(product[0])
     return <>
         <h1>Specific Product  {slug}</h1>
