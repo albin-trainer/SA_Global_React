@@ -3,6 +3,7 @@ import { randomUUID } from "crypto";
 //  In-memory DB (persists while server runs)
 export let products = [
   { id: 1, name: "iPhone 15", slug: "iphone-15", price: 70000 },
+  { id: 2, name: "OnePlus", slug: "OnePlus", price: 30000 },
 ];
 
 //  GET - fetch all products
@@ -34,6 +35,7 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
   const body = await req.json();
 
+  //finding the index for the element
   const index = products.findIndex(p => p.id === body.id);
 
   if (index === -1) {
@@ -42,11 +44,7 @@ export async function PUT(req: Request) {
       { status: 404 }
     );
   }
-
-  products[index] = {
-    ...products[index],
-    ...body,
-  };
+  products[index] = { ...products[index], ...body, };
 
   return Response.json({
     message: `Product ${body.id} updated`,
