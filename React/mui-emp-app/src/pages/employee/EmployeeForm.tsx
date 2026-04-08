@@ -72,8 +72,7 @@ function EmployeeForm({ defaultValues }: Props) {
       console.log(data);
       if(id){
         //call update service
-       
-          updateEmp(data, Number(id)).then(resp=>{
+           updateEmp(data, Number(id)).then(resp=>{
             navigate("/employee");
           }).catch(err=>console.log(err));
 
@@ -85,15 +84,16 @@ function EmployeeForm({ defaultValues }: Props) {
       }
   } 
 
-
-  return (
+  return (    
     <Box
       component="form"
       onSubmit={handleSubmit(onSubmit)}
       sx={{ maxWidth: 500, mx: "auto" }}
     >
       <Typography variant="h5" mb={2}>
-        Employee Form
+      {
+        id?"Employee Edit Form" :"Add New Emp"
+      }
       </Typography>
 
       {/* Name */}
@@ -187,7 +187,7 @@ function EmployeeForm({ defaultValues }: Props) {
         fullWidth
         sx={{ mt: 2 }}
       >
-        Save
+        {id?"Update":"Add Emp"}
       </Button>
     </Box>
   );

@@ -20,6 +20,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useEffect, useState } from "react";
 import { getAllEmps } from "../../services/EmployeeService";
 import { useEmployees } from "../../hooks/useEmployees";
+import ConfirmDialog from "../../components/common/ConfirmDialog";
 
 type Department = "HR" | "IT" | "Finance";
 type Gender = "Male" | "Female" | "Other";
@@ -36,15 +37,24 @@ function EmployeeList() {
   const navigate = useNavigate();
 //const [emps,setEmps]=useState<Employee[]>([])
 const [search,setSearch]=useState<string>("");
+//Dialog state
+  const [open, setOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 //const [filteredEmps,setFilteredEmps]=useState<Employee[]>([])
 /*useEffect( ()=>{
        getAllEmps().then( emps=>setEmps(emps));
 },[] );
 */
 let {emps,removeEmp}=useEmployees();
+
+
   const handleDelete = (id: number) => {
     console.log("Delete employee:", id);
-    removeEmp(id);
+ //   removeEmp(id);
+  setSelectedId(id);
+    setOpen(true);
+
+
     // later → API call + confirm dialog
     //const prev = emps;
     // update UI instantly
@@ -52,6 +62,22 @@ let {emps,removeEmp}=useEmployees();
     //setEmps(emps.filter(emp => emp.id !== id));
     //then remove from BackEND  .....
     
+  };
+
+  
+  // confirm delete
+  const handleConfirm = async () => {
+    if (selectedId !== null) {
+       removeEmp(selectedId);
+    }
+    setOpen(false);
+    setSelectedId(null);
+  };
+
+  // cancel
+  const handleCancel = () => {
+    setOpen(false);
+    setSelectedId(null);
   };
 
 const filteredEmps=
@@ -133,6 +159,14 @@ emps.filter(e=>e.name.toLowerCase().includes(search.toLowerCase()))
           </TableBody>
         </Table>
       </TableContainer>
+       {/* Confirm Dialog */}
+      <ConfirmDialog
+        open={open}
+        title="Delete Employee"
+        message="Are you sure you want to delete this employee?"
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
     </Box>
   );
 }

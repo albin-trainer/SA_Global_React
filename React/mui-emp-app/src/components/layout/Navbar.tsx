@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { AuthContext } from '../../context/AuthContext';
 
 //const pages = ['Products', 'Pricing', 'Blog'];
 const pages = [
@@ -23,6 +25,8 @@ const pages = [
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+    const { user, logout } = useContext(AuthContext);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -41,6 +45,15 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const handleLogout=(setting:any)=>{
+      //if setting is logout .. do the logout
+      //
+      //alert(setting);
+      if(setting=="Logout"){
+        logout();
+      }
+      handleCloseUserMenu();
+  }
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -130,6 +143,8 @@ function Navbar() {
               </Button>
             ))}
           </Box>
+              Welcome Albin
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -153,8 +168,8 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                <MenuItem key={setting} onClick={ () => handleLogout(setting) }>
+                  <Typography  sx={{ textAlign: 'center' }}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

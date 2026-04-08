@@ -4,7 +4,9 @@ import { AuthContext } from "../context/AuthContext";
 import { loginUser } from "../services/EmployeeService";
 
 const Login = () => {
+  //accessing context
   const { login  } = useContext(AuthContext);
+  
   const navigate = useNavigate();
   const nameref=useRef("");
   const pwdref=useRef("");
