@@ -143,7 +143,7 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-              Welcome Albin
+              Welcome {user.name} 
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
